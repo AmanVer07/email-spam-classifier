@@ -2,13 +2,8 @@ import streamlit as st
 import pickle
 import nltk
 from nltk.corpus import stopwords
-import streamlit as st
-import pickle
-import nltk
-from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import wordpunct_tokenize
-import string
 
 @st.cache_resource
 def download_nltk():
@@ -17,28 +12,16 @@ def download_nltk():
 download_nltk()
 
 ps = PorterStemmer()
+stop_words = set(stopwords.words('english'))
 
 def transform_text(text):
     text = text.lower()
-    text = wordpunct_tokenize(text)
+    tokens = wordpunct_tokenize(text)
 
     y = []
-    for i in text:
-        if i.isalnum():
-            y.append(i)
-
-    text = y[:]
-    y.clear()
-
-    for i in text:
-        if i not in stopwords.words('english') and i not in string.punctuation:
-            y.append(i)
-
-    text = y[:]
-    y.clear()
-
-    for i in text:
-        y.append(ps.stem(i))
+    for word in tokens:
+        if word.isalnum() and word not in stop_words:
+            y.append(ps.stem(word))
 
     return " ".join(y)
 
@@ -59,4 +42,3 @@ if st.button("Predict"):
         st.error("🚨 Spam Message")
     else:
         st.success("✅ Not Spam")
-
