@@ -1,4 +1,23 @@
 import streamlit as st
+
+def login():
+    st.title("🔐 Login Required")
+
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+
+    if st.button("Login"):
+        if username == "admin" and password == "spam123":
+            st.session_state["authenticated"] = True
+        else:
+            st.error("❌ Invalid credentials")
+
+if "authenticated" not in st.session_state:
+    login()
+    st.stop()
+
+
+import streamlit as st
 import pickle
 import nltk
 from nltk.corpus import stopwords
