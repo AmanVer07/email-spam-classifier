@@ -5,7 +5,12 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import string
 
-nltk.download('stopwords')
+@st.cache_resource
+def download_nltk():
+    nltk.download('stopwords')
+    nltk.download('punkt')
+
+download_nltk()
 
 ps = PorterStemmer()
 
