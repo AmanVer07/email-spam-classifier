@@ -1,7 +1,8 @@
 # Email / SMS Spam Classifier
 
 This is a Machine Learning based web application that classifies
-messages as Spam or Not Spam using NLP techniques.
+messages as Spam or Not Spam using NLP techniques. 
+
 
 ##  Live Demo
 [https://email-spam-classifier-wydu.onrender.com/](https://email-spam-classifier-wydu.onrender.com)
