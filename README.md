@@ -6,6 +6,8 @@ messages as Spam or Not Spam using NLP techniques.
 
 ##  Live Demo
 [https://email-spam-classifier-wydu.onrender.com/](https://email-spam-classifier-wydu.onrender.com)
+username = admin
+Password = spam123
 
 ##  Tech Stack
 - Python
